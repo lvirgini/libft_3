@@ -6,7 +6,7 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 13:28:59 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/06/22 11:20:19 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/06/22 16:41:40 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static char	*ft_strjoin_gnl(char *s1, char const *s2, size_t s2_len)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s1[i])
+	while (s1 && s1[i])
 		dest[j++] = s1[i++];
 	i = 0;
-	while (s2[i])
+	while (i < s2_len)
 		dest[j++] = s2[i++];
 	dest[j] = '\0';
 	if (s1)
