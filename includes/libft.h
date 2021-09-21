@@ -6,7 +6,7 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 00:09:18 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/06/22 11:14:46 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:44:52 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,6 @@ char			*ft_strcut(char *s, size_t n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			**ft_split(char const *s, const char c);
-char			**ft_split_count(const char *s, const char c, size_t *size);
-void			ft_free_split_str(char **str);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /*
