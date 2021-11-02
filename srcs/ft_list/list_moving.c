@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_set.c                                    :+:      :+:    :+:   */
+/*   t_list_moving.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/10/26 10:22:12 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/10/28 11:26:17 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
+** recupere les pointeurs des char *env de OLD pour les mettre dans env
 */
 
-size_t	ft_strlen_set(const char *s, const char *set) //
+int	moving_list(char **list, char **old_list, int max)
 {
-	size_t	len;
+	int		i;
 
-	len = 0;
-	while (!ft_strchr(set, s[len]))
-		len++;
-	return (len);
+	i = 0;
+	while (i < max && old_list[i])
+	{
+		list[i] = old_list[i];
+		i++;
+	}
+	return (i);
 }

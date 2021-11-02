@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_set.c                                    :+:      :+:    :+:   */
+/*   list_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/10/26 14:43:42 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/10/28 13:16:29 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
+** list_str is char ** malloc with NULL for last char *.
 */
 
-size_t	ft_strlen_set(const char *s, const char *set) //
+size_t	listlen(char **list)
 {
 	size_t	len;
 
 	len = 0;
-	while (!ft_strchr(set, s[len]))
-		len++;
+	if (list)
+	{
+		while (list[len])
+			len++;
+	}
 	return (len);
 }

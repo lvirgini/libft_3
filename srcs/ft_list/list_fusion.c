@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_set.c                                    :+:      :+:    :+:   */
+/*   t_list_fusion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/10/28 09:55:28 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/10/28 12:54:09 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
-*/
-
-size_t	ft_strlen_set(const char *s, const char *set) //
+char	**list_fusion(char **first, char **second, int	index)
 {
-	size_t	len;
+	size_t	total_len;
+	char	**result;
+	(void)index;
 
-	len = 0;
-	while (!ft_strchr(set, s[len]))
-		len++;
-	return (len);
+	if (!first || !*first)
+		return (second);
+	if (!second || !*second)
+		return (first);
+	total_len = listlen(first) + listlen(second);
+	result = malloc_list(total_len);
+/*	list_dup_max(result, first, index);
+	list_dup(result + index, second);
+	list_dup()*/
+	return (result);
 }

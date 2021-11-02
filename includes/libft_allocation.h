@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_set.c                                    :+:      :+:    :+:   */
+/*   libft_allocation.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/10/28 11:28:09 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/10/28 11:35:18 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_ALLOCATION_H
+# define LIBFT_ALLOCATION_H
+
+# include "libft.h"
 
 /*
-** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
+** Fonction dl'allocation de mémoire
 */
 
-size_t	ft_strlen_set(const char *s, const char *set) //
-{
-	size_t	len;
+void			*ft_calloc(size_t count, size_t size);
 
-	len = 0;
-	while (!ft_strchr(set, s[len]))
-		len++;
-	return (len);
-}
+#endif

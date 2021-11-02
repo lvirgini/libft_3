@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_set.c                                    :+:      :+:    :+:   */
+/*   t_list_malloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/10/26 14:39:01 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/10/28 12:57:41 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
+** Malloc t_list and set all inside to NULL.
 */
 
-size_t	ft_strlen_set(const char *s, const char *set) //
+char	**malloc_list(int size)
 {
-	size_t	len;
+	char	**list;
 
-	len = 0;
-	while (!ft_strchr(set, s[len]))
-		len++;
-	return (len);
+	list = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!list)
+	{
+		//perror("malloc_list()");
+		return (NULL);
+	}
+	list[size] = NULL;
+	return (list);
 }
