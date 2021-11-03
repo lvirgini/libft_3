@@ -6,7 +6,7 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/21 18:13:44 by lvirgini          #+#    #+#              #
-#    Updated: 2021/11/03 15:17:37 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/11/03 15:26:00 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SRCS_FT_PRINT = 	ft_putchar_fd.c	ft_putchar.c	ft_putendl.c	ft_putnbr_base_fd.c \
 					ft_putendl_fd.c	ft_putnbr_fd.c	ft_putnbr.c		ft_putstr_fd.c \
 					ft_putstr.c
 
-SRCS_STRING	=		ft_split.c		ft_strchr_len.c	ft_strchr_set.c	\
+SRCS_STRING	=		ft_split.c		ft_split_set.c	ft_strchr_len.c	ft_strchr_set.c	\
 					ft_strchr.c		ft_strcmp.c		ft_strcut.c		ft_strdup.c		\
 					ft_strjoin.c	ft_strlcat.c	\
 					ft_strlcpy.c	ft_strlen.c		ft_strmapi.c	ft_strncmp.c	\

@@ -6,7 +6,7 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 11:28:09 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:36:40 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:23:16 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlen_set(const char *s, const char *set);
+size_t	ft_strchr_set_len(const char *s, const char *set);
 int		ft_strchr_len(const char *s, int c);
 char	*ft_strchr_set(const char *s, const char *set);
 char	*ft_strchr(const char *s, int c);
@@ -37,6 +38,8 @@ char	*ft_strcut(char *s, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, const char c);
+char	**ft_split_set(const char *s, const char *set);
+void	free_list_exit(char **list);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

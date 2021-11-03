@@ -6,12 +6,16 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 00:09:18 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/11/03 15:06:04 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:28:18 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+/*
+** DEFINES
+*/
 
 # ifndef FAILURE
 #  define FAILURE 0
@@ -21,9 +25,18 @@
 #  define SUCCESS 1
 # endif
 
+/*
+** INCLUDES STANDARD LIBRARY
+*/
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+
+/*
+** INCLUDES LIBFT
+*/
+
 # include "get_next_line.h"
 # include "libft_is_something.h"
 # include "libft_memory.h"
@@ -34,11 +47,7 @@
 # include "libft_string.h"
 # include "libft_list.h"
 
-/*
-** Global Usage
-*/
-
-enum e_bool
+enum	e_bool
 {
 	false,
 	true,
