@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_move.c                                        :+:      :+:    :+:   */
+/*   list_cpy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 10:14:06 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/11/03 15:06:46 by lvirgini         ###   ########.fr       */
+/*   Created: 2021/11/03 11:20:56 by lvirgini          #+#    #+#             */
+/*   Updated: 2021/11/03 15:09:33 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** copy complete pointer in src to dst;
+** copy src in dst. (using malloc)
 */
 
-int	list_move(char **dst, char **src)
+int	list_cpy(char **dst, char **src)
 {
-	size_t		i;
+	int		i;
 
 	if (!dst || !src)
 		return (FAILURE);
 	i = 0;
 	while (src[i])
 	{
-		dst[i] = src[i];
+		dst[i] = ft_strdup(src[i]);
+		if (!dst[i])
+		{
+			free_n_list(dst, i);
+			return (FAILURE);
+		}
 		i++;
 	}
-	return (SUCCESS);
+	return (i);
 }
 
 /*
-** copy until max pointer in src to dst;
+** copy src in dst, until max index of src. (using malloc)
 */
 
-int	list_nmove(char **dst, char **src, size_t max)
+int	list_ncpy(char **dst, char **src, size_t max)
 {
 	size_t		i;
 	size_t		len;
@@ -48,19 +53,10 @@ int	list_nmove(char **dst, char **src, size_t max)
 	i = 0;
 	while (i < max && src[i])
 	{
-		dst[i] = src[i];
+		dst[i] = ft_strdup(src[i]);
+		if (!dst[i])
+			return (FAILURE);
 		i++;
 	}
-	return (SUCCESS);
-}
-
-/*
-** move src[first] to src[last] in dst
-*/
-
-int	list_index_move(char **dst, char **src, size_t first, size_t last)
-{
-	if (last == 0 || first > last || listlen(src) < first)
-		return (FAILURE);
-	return (list_nmove(dst, src + first, last));
+	return ((int)i);
 }

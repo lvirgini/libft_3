@@ -6,7 +6,7 @@
 #    By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/21 18:13:44 by lvirgini          #+#    #+#              #
-#    Updated: 2021/10/28 15:11:37 by lvirgini         ###   ########.fr        #
+#    Updated: 2021/11/03 15:17:37 by lvirgini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,35 +24,38 @@ SRC_DIR = 	$(shell find srcs -type d)
 
 vpath %.c $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRCS 	= $(SRCS_ALLOCATION) + $(SRCS_CONVERTION) + $(SRCS_IS_SOMETHING) + $(SRCS_MEMORY) \
-		+ $(SRCS_FT_PRINT) + $(SRCS_STRING) + $(SRCS_GNL) + $(SRCS_LITTLE_MATHS) + $(SRCS_LIST)
+SRC 	= $(SRCS_ALLOCATION) $(SRCS_CONVERTION) $(SRCS_IS_SOMETHING) $(SRCS_LIST)
+SRC	   += $(SRCS_MEMORY) $(SRCS_FT_PRINT) $(SRCS_STRING) $(SRCS_GNL) $(SRCS_LITTLE_MATHS) 
 
 SRCS_ALLOCATION = ft_calloc.c \
 
 SRCS_CONVERTION = 	ft_atof.c		ft_atoi_base.c	ft_atoi.c		ft_itoa.c  \
-					ft_lltoa.c 		ft_ ulltoa.c	ft_utoa.c	\
+					ft_lltoa.c 		ft_ulltoa.c		ft_utoa.c
 
-SRCS_IS_SOMETHING = ft_isalnum.c	ft_isalpha.c	ft_isascci.c	ft_isdigit.c \
-					ft_isprint.c	ft_isspace.c	ft_tolower.c	ft_toupper.c \
+SRCS_IS_SOMETHING = ft_isalnum.c	ft_isalpha.c	ft_isascii.c	ft_isdigit.c \
+					ft_isprint.c	ft_isspace.c	ft_tolower.c	ft_toupper.c
 
-SRCS_MEMORY	=		ft_bezero.c		ft_memccpy.c	ft_memchr.c		ft_memcmp.c \
-					ft_memmove.c	ft_memset.c \
+SRCS_LIST = 		list_free.c		list_len.c		list_malloc.c	list_duplicate.c \
+					list_move.c		list_print.c	list_print.c 	
+
+SRCS_MEMORY	=		ft_bzero.c		ft_memccpy.c	ft_memchr.c		ft_memcmp.c \
+					ft_memmove.c	ft_memset.c 
 
 SRCS_FT_PRINT = 	ft_putchar_fd.c	ft_putchar.c	ft_putendl.c	ft_putnbr_base_fd.c \
 					ft_putendl_fd.c	ft_putnbr_fd.c	ft_putnbr.c		ft_putstr_fd.c \
-					ft_putstr.c \
+					ft_putstr.c
 
-SRCS_STRING	=		ft_split.c		ft_split_set.c	ft_strchr_len.c	ft_strchr_set.c	\
+SRCS_STRING	=		ft_split.c		ft_strchr_len.c	ft_strchr_set.c	\
 					ft_strchr.c		ft_strcmp.c		ft_strcut.c		ft_strdup.c		\
-					ft_strndup.c	ft_strjoin.c	ft_strnjoin.c	ft_strlcat.c	\
+					ft_strjoin.c	ft_strlcat.c	\
 					ft_strlcpy.c	ft_strlen.c		ft_strmapi.c	ft_strncmp.c	\
-					ft_strncpy.c	ft_strnstr.c	ft_substr.c	\
+					ft_strncpy.c	ft_strnstr.c	ft_substr.c
 				
-SRCS_GNL = 			get_next_line.c \
+SRCS_GNL = 			get_next_line.c 
 
-SRCS_LITTLE_MATHS = ft_abs.c \
+SRCS_LITTLE_MATHS = ft_abs.c 
 
-SRC		= 	$(foreach dir, $(SRC_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
+#SRC		= 	$(foreach dir, $(SRC_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 OBJ 	=	$(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 
 #TEST_DIR=	test/
@@ -87,7 +90,7 @@ $(NAME):	$(OBJ) $(INC_DIR) Makefile
 all:		${NAME}
 
 debug :		$(OBJ) $(INC_DIR) Makefile
-			@$(CC) -g $(CFLAG) $(IFLAG) $(OBJ) test/list_test.c
+			@$(CC) -g -Wall -Wextra $(IFLAG) $(OBJ) test/list_test.c
 
 show	:
 			@echo "SRC_DIR : $(SRC_DIR)\n"

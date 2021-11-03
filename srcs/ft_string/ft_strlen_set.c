@@ -6,7 +6,7 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 12:55:52 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 11:25:34 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:11:29 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** retourne la longueur de s tant qu'il n'y a pas d'element similaire a set.
 */
 
-size_t	ft_strlen_set(const char *s, const char *set) //
+size_t	ft_strlen_set(const char *s, const char *set)
 {
 	size_t	len;
 

@@ -6,7 +6,7 @@
 /*   By: lvirgini <lvirgini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:44:17 by lvirgini          #+#    #+#             */
-/*   Updated: 2021/10/28 13:04:54 by lvirgini         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:20:36 by lvirgini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,16 @@ char	**list_dup(char **src)
 {
 	size_t	len;
 	char	**dst;
-	size_t	i;
 
+	if (!src)
+		return (NULL);
 	len = listlen(src);
 	dst = malloc_list(len);
 	if (dst)
 	{
-		i = 0;
-		while (i < len)
-		{
-			dst[i] = ft_strdup(src[i]);
-			if (!dst[i])
-			{
-				free_n_list(dst, i);
-				return (NULL);
-			}
-			i++;
-		}
-		dst[i] = NULL;
+		if (list_cpy(dst, src) == FAILURE)
+			return (NULL);
+		return (dst);
 	}
 	return (dst);
 }
@@ -49,27 +41,19 @@ char	**list_dup(char **src)
 char	**list_ndup(char **src, size_t max)
 {
 	size_t	len;
-	size_t	i;
 	char	**dst;
 
+	if (!src)
+		return (NULL);
 	len = listlen(src);
 	if (len < max)
 		max = len;
 	dst = malloc_list(max);
 	if (dst)
 	{
-		i = 0;
-		while (i < max)
-		{
-			dst[i] = ft_strdup(src[i]);
-			if (!dst[i])
-			{
-				free_n_list(dst, i);
-				return (NULL);
-			}
-			i++;
-		}
-		dst[i] = NULL;
+		if (list_ncpy(dst, src, max) == FAILURE)
+			return (NULL);
+		return (dst);
 	}
 	return (dst);
 }
